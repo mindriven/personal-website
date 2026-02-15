@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamil Posiadała - Technology Executive & Engineering Excellence Leader</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=DM+Sans:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+            /* Style Variables */
+            --accent-color: #076b2c;
+            --accent-color-hover: #076b2c;
+            --accent-cta-text: #000;
+
+            --font-headline: 'DM Sans', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: #111;
+            color: #eee;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(
+                10vmax circle at var(--mouse-x) var(--mouse-y),
+                rgba(255, 255, 255, 0.08),
+                transparent 80%
+            );
+            animation: gradient-fade 8s ease-in-out infinite alternate;
+        }
+        @keyframes gradient-fade {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        .data-viz-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- Refined CSS-Only Hover Effects --- */
+
+        /* Base styles for the inner span that holds the ::after underline */
+        .underline-target {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Gradient underline pseudo-element for most links */
+        .underline-target::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            left: -25%;
+            transform: scaleX(0);
+            background-image: linear-gradient(to right, transparent 0%, var(--accent-color) 15%, var(--accent-color) 85%, transparent 100%);
+            transform-origin: bottom center;
+            transition: transform 0.45s cubic-bezier(0.2, 1, 0.3, 1); /* Slower animation */
+        }
+
+        /* Underline hover trigger for ::after method */
+        a:hover > .underline-target::after,
+        h1:hover .underline-target::after {
+            transform: scaleX(1);
+        }
+        /* Specific hover for buttons (directly on a) */
+        #cta-explore-approaches:hover::after, #cta-lets-talk:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* Specific underline positioning and thickness for ::after method */
+        #nav-links .underline-target::after, 
+        #site-title-logo .underline-target::after {
+            height: 2px;
+            bottom: -6px;
+        }
+        #hero-role-headline .underline-target::after {
+            height: 4px;
+            bottom: -10px;
+            transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1); /* Slower transition for headline */
+        }
+        /* Button underline properties - directly on a tag's after */
+        #cta-explore-approaches, #cta-lets-talk {
+            position: relative; /* Ensure button is positioned for its ::after */
+        }
+        #cta-explore-approaches::after, #cta-lets-talk::after {
+            content: '';
+            position: absolute;
+            width: 90%; /* Relative to button width */
+            left: 5%; /* Center it */
+            height: 3px;
+            bottom: 13px; /* Position inside button, closer to text */
+            transform: scaleX(0);
+            background-image: linear-gradient(to right, transparent 0%, var(--accent-color) 15%, var(--accent-color) 85%, transparent 100%);
+            transform-origin: bottom center;
+            transition: transform 0.45s cubic-bezier(0.2, 1, 0.3, 1); /* Slower animation */
+        }
+        /* Specific underline color for the yellow CTA button */
+        #cta-explore-approaches::after { /* Target directly on a tag */
+            background-image: linear-gradient(to right, transparent 0%, #262626 15%, #262626 85%, transparent 100%); /* Dark grey for visibility */
+        }
+        
+    </style>
+</head>
+<body class="min-h-screen antialiased data-viz-grid">
+    <div id="main-content-container" class="relative z-10 container mx-auto px-8 py-12 bg-neutral-900/30 shadow-2xl">
+        <!-- Navigation -->
+        <nav id="main-nav" class="flex flex-col md:flex-row justify-between items-center mb-24">
+            <a id="site-title-logo" href="#" class="text-2xl font-bold" style="color: var(--accent-color);">
+                <span class="underline-target">Kamil Posiadała</span>
+            </a>
+        </nav>
+
+        <!-- Hero Section -->
+        <header id="hero-section" class="text-center max-w-4xl mx-auto mb-32">
+            <h1 id="hero-role-headline" class="text-5xl font-bold leading-tight mb-8 cursor-pointer">
+                Software Executive &<br>
+                <span class="underline-target">Engineering</span> <span class="underline-target">Excellence</span> <span class="underline-target">Leader</span>
+            </h1>
+            <p id="hero-uvp-text" class="text-xl text-neutral-300 mb-12 leading-relaxed">
+                Business strategy contributor (executive partner), leading technical delivery from concept to impact.
+                Building high-performance culture, architecting resilient, scalable software systems across diverse B2* SaaS environments, in green- and brown-field projects.
+                New product development, legacy modernization, cloud transformation, and team scaling.
+                Enabling world-class developer experience leading to fast, measurable delivery and high work satisfaction.</br>
+                AI included natively.
+            </p>
+        </header>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main-footer" class="relative z-10 text-center text-neutral-600 text-sm py-8 border-t border-neutral-800">
+        &copy; <script>document.write(new Date().getFullYear())</script>
+ Kamil Posiadała. All rights reserved.
+    </footer>
+
+    <script>
+        // Mouse move effect for background
+        const body = document.body;
+        body.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                body.style.setProperty('--mouse-x', `${e.clientX}px`);
+                document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+            });
+        });
+    </script>
+</body>
+</html>
